@@ -1,0 +1,36 @@
+name = "minato-shihoshoshi-office"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+# Cloudflare Pages configuration
+pages_build_output_dir = "dist/public"
+
+# Build configuration
+[build]
+command = "pnpm build"
+cwd = "./"
+watch_paths = ["client/src/**/*.tsx", "client/src/**/*.css"]
+
+# Environment variables
+[env.production]
+name = "minato-shihoshoshi-office"
+routes = [
+  { pattern = "minato-office.jp/*", zone_name = "minato-office.jp" }
+]
+
+# Redirects and rewrites
+[[redirects]]
+from = "/404"
+to = "/404.html"
+status = 404
+
+# Cache control
+[[routes]]
+pattern = "/assets/*"
+cache_on_cookie = "session"
+
+[build.upload]
+format = "service-worker"

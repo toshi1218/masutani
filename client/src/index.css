@@ -43,39 +43,52 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
+  /* Serene Trust Design System */
+  /* Deep Navy Primary - Trust & Stability */
+  --primary: oklch(0.28 0.15 260);
+  --primary-foreground: oklch(0.98 0.001 0);
+  --sidebar-primary: oklch(0.28 0.15 260);
+  --sidebar-primary-foreground: oklch(0.98 0.001 0);
+  
+  /* Gold Accent - Elegance & Emphasis */
+  --accent: oklch(0.68 0.12 70);
+  --accent-foreground: oklch(0.98 0.001 0);
+  
+  /* Chart colors in navy tones */
+  --chart-1: oklch(0.35 0.12 260);
+  --chart-2: oklch(0.40 0.13 260);
+  --chart-3: oklch(0.45 0.14 260);
+  --chart-4: oklch(0.50 0.15 260);
+  --chart-5: oklch(0.55 0.16 260);
+  
+  --radius: 0.5rem;
+  
+  /* Clean white base with warm gray support */
+  --background: oklch(0.99 0.001 0);
+  --foreground: oklch(0.15 0.02 260);
+  --card: oklch(0.99 0.001 0);
+  --card-foreground: oklch(0.15 0.02 260);
+  --popover: oklch(0.99 0.001 0);
+  --popover-foreground: oklch(0.15 0.02 260);
+  
+  /* Secondary - Warm gray */
+  --secondary: oklch(0.95 0.001 0);
+  --secondary-foreground: oklch(0.28 0.02 260);
+  --muted: oklch(0.92 0.002 0);
+  --muted-foreground: oklch(0.50 0.02 260);
+  
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --border: oklch(0.90 0.002 0);
+  --input: oklch(0.95 0.001 0);
+  --ring: oklch(0.28 0.15 260);
+  
+  --sidebar: oklch(0.99 0.001 0);
+  --sidebar-foreground: oklch(0.15 0.02 260);
+  --sidebar-accent: oklch(0.68 0.12 70);
+  --sidebar-accent-foreground: oklch(0.15 0.02 260);
+  --sidebar-border: oklch(0.90 0.002 0);
+  --sidebar-ring: oklch(0.28 0.15 260);
 }
 
 .dark {
@@ -117,8 +130,18 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -158,6 +181,23 @@
   .flex {
     min-height: 0;
     min-width: 0;
+  }
+  
+  .section-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+  
+  .card-elevated {
+    @apply bg-card text-card-foreground rounded-lg shadow-sm border border-border/50 transition-all duration-300 hover:shadow-md;
+  }
+  
+  .heading-serif {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+  }
+  
+  .text-accent-gold {
+    color: oklch(0.68 0.12 70);
   }
 
   @media (min-width: 640px) {
